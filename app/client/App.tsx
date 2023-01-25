@@ -1,10 +1,10 @@
 import React from 'react';
 import Text from './Text';
 
-const App = () => {
+const App = ({ side = 'server side rendered' }: { side?: string }) => {
   return (
     <div>
-      Sono <Text>server side rendered</Text>
+      Sono <Text>{side}</Text>
     </div>
   );
 };
