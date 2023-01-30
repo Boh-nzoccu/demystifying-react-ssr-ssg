@@ -12,9 +12,10 @@ const port: number = 3000;
 
 // Handling '/' Request
 app.get('/', (_req, _res) => {
-  const { pipe } = renderToPipeableStream(<App />, {
+  const { pipe } = renderToPipeableStream(<App  />, {
     onShellReady() {
       _res.setHeader('content-type', 'text/html');
+      _res.write('<html>')
       _res.write(
         `<!DOCTYPE html><head><meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,6 +23,7 @@ app.get('/', (_req, _res) => {
         </head>`
       );
       _res.write(`<body><div id="root"></body>`);
+      _res.write('</html>')
 
       pipe(_res);
     },
